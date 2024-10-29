@@ -119,7 +119,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 # Enhanced Redis configuration
 REDIS_URL = os.environ.get('REDIS_URL')
-if REDIS_URL:
+if (REDIS_URL):
     try:
         redis_client = redis.from_url(REDIS_URL)
         redis_client.ping()
@@ -300,4 +300,5 @@ except Exception as e:
     logger.error(f"Failed to initialize application: {str(e)}")
     raise
 
-from chat_socket import *
+import routes
+import socket_events

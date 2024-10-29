@@ -13,6 +13,10 @@ socket.on('status', (data) => {
     appendStatusMessage(data.msg);
 });
 
+socket.on('search_messages', (data) => {
+    displaySearchResults(data.results);
+});
+
 function joinBandChat(bandId, bandName) {
     if (currentBandId) {
         socket.emit('leave', { band_id: currentBandId });
