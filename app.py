@@ -267,7 +267,7 @@ def health_check():
         db.session.remove()
         
         cache_status = False
-        if REDIS_URL:
+        if (REDIS_URL):
             try:
                 cache_status = redis_client.ping()
             except:
